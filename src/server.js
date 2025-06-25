@@ -10,6 +10,11 @@ app.use(morgan('dev'));
 app.use(cors());
 app.use(express.json());
 
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'API funcionando!' });
+});
+
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
+  console.log(`JWT Secret: ${process.env.JWT_SECRET}`);
 });
